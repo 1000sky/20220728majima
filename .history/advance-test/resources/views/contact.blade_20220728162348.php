@@ -11,13 +11,13 @@
 <body>
     <h1>お問い合わせ</h1>
 
-    {{--@if (count($errors) > 0)
+    @if (count($errors) > 0)
     <ul>
       @foreach ($errors->all() as $error)
         <li>{{$error}}</li>
       @endforeach
     </ul>
-    @endif--}}
+    @endif
 
     <form action="/create" method="POST">
 

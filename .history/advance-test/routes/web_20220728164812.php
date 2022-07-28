@@ -27,6 +27,6 @@ Route::post('/create', [ContactController::class, 'create']);
 
 Route::get('/confirmation',[ContactController::class, 'confirmation']);
 
-Route::post('/management', [AuthorController::class, 'search']);
+Route::post('/confirmation', [AuthorController::class, 'search']);
 
 Route::get('/management', [ContactController::class, 'page']);

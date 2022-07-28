@@ -11,13 +11,13 @@
 <body>
     <h1>お問い合わせ</h1>
 
-    {{--@if (count($errors) > 0)
+    @if (count($errors) > 0)
     <ul>
       @foreach ($errors->all() as $error)
         <li>{{$error}}</li>
       @endforeach
     </ul>
-    @endif--}}
+    @endif
 
     <form action="/create" method="POST">
 
@@ -96,15 +96,6 @@
            <td><p>例）東京都渋谷区千駄ヶ谷1-2-3</p></td>
         </tr>
 
-        @if ($errors->has('address'))
-        <tr>
-          <th>ERROR</th>
-          <td>
-            {{$errors->first('address')}}
-          </td>
-        </tr>
-        @endif
-
         <tr>
          <th><label for="">建物</label></th>
          <td><input type="text"></td>
@@ -118,15 +109,6 @@
           <th><label for="">ご意見</label></th>
           <td><textarea name="opinion" cols="30" rows="10"></textarea></td>
         </tr>
-
-        @if ($errors->has('opinion'))
-        <tr>
-          <th>ERROR</th>
-          <td>
-            {{$errors->first('opinion')}}
-          </td>
-        </tr>
-        @endif
         
       </table>  
 

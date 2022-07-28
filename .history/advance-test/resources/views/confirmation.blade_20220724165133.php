@@ -18,7 +18,7 @@
         </tr>
         <tr>
             <th>性別<span>※</span></th>
-            <td>{{$item->gender}}</td>
+            <td>{{$item->}}gender</td>
         </tr>
         <tr>
             <th>メールアドレス<span>※</span></th>
