@@ -36,10 +36,9 @@ class ContactController extends Controller
     //confirmation
     public function confirmation()
     {
-        $items = Contact::all(); 
+        $items = Contact::all();
         return view('confirmation', ['items' => $items]);
-    }//修正すること　:where('user_id', Contact::user()->id)->get();
-
+    }
     
     //management
     public function management()
