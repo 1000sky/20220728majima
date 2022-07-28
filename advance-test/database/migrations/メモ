@@ -1,0 +1,53 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateContactsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('contacts', function (Blueprint $table) {
+            $table->BigInteger('id',20)->unsigned();
+            /*$table->string('id', 30);*/
+            $table->string('fullname', 255)->nullable(false);
+            
+            $table->tinyInteger('gender')->comment('1:男性 2:女性')->nullable(false);
+            $table->string('email',255)->nullable(false);
+            $table->char('postcode', 8)->nullable(false);
+            $table->string('address',255)->nullable(false);
+            $table->string('building_name',255);
+            $table->text('opinion')->nullable(false);
+            $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->timestamp('updated_at')->useCurrent()->nullable(); 
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('contacts');
+    }
+}
+
+
+$param = [
+    'fullname' => '山田　太郎',
+    'gender' => '男性',
+    'email' => 'test@example.com',
+    'postcode' => 123-4567,
+    'address' => '東京都渋谷区千駄ヶ谷1-2-3',
+    'building_name' => '千駄ヶ谷マンション101',
+    'opinion' => 'いつもお世話になっています。先日、貴社製品を購入させていただきました。この度、不具合が生じ、説明書に沿って説明書に沿って操作を進めていましたが上手くいきませんでした。どのように直せばいいかご教授いただきたいです。',
+];
+DB::table('contacts')->insert($param);
